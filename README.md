@@ -34,13 +34,15 @@ apply_filters( 'semrush_seo_writing_assistant_post_types', array $post_types )
 
 ### `semrush-seo-writing-assistant`
 
-The following example will update text for SEMrush check every 5 seconds, using `excerpt` and `my_custom_fields` custom field values:
+The following example will update text for SEMrush check every 5 seconds, using `excerpt` and `my_custom_fields` custom field values (working both with block and classic editors):
 
 ```javascript
 jQuery( document ).ready( function() {
 	var sr = new SEMrushSeoWritingAssistantCustomFields( { interval: 5 } );
 	jQuery( document ).on( 'semrush-seo-writing-assistant', function( event, data ) {
-		data.html = jQuery( '#excerpt' ).val() + "\n" + jQuery( '#my_custom_fields' ).val();
+		data.html = jQuery( '#excerpt' ).val() + "\n"
+			+ jQuery( '.editor-post-excerpt__textarea textarea').val() + "\n"
+			+ jQuery( '#my_custom_fields' ).val();
 	} )
 } );
 ```
