@@ -8,7 +8,7 @@
  * Plugin URI:  https://github.com/enrico-sorcinelli/semrush-seo-writing-assistant-custom-fields
  * Description: A WordPress plugin that allows SEMrush SEO Writing Assistant working with custom fields
  * Author:      Enrico Sorcinelli
- * Author URI:  https://github.com/enrico-sorcinelli/semrush-seo-writing-assistant-custom-fields
+ * Author URI:  https://github.com/enrico-sorcinelli/semrush-seo-writing-assistant-custom-fields/graphs/contributors
  * Text Domain: semrush-swa-custom-fields
  * Domain Path: /languages/
  * Version:     1.0.1
