@@ -1,10 +1,12 @@
 # SEMrush SEO Writing Assistant Custom Fields
 
-The SEMrush SEO Writing Assistant plugin read only from post `title` and post `content` elements for the real time check.
+The [SEMrush SEO Writing Assistant](https://wordpress.org/plugins/semrush-seo-writing-assistant/) plugin read only from post `title` and post `content` elements for the real time check.
 
 This plugin allows you to use an arbitrary value for that check in addition to those values.
 
 So, if you are using some kind of a page builders, field managers and so on, you have only to add a little bit of JavaScript code in order to specify which fields.
+
+Note that the plugin don't replace _SEMrush SEO Writing Assistant_ but is intended to be used together.
 
 # Installation  
 
