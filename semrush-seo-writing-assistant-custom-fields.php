@@ -11,7 +11,7 @@
  * Author URI:  https://github.com/enrico-sorcinelli/semrush-seo-writing-assistant-custom-fields
  * Text Domain: semrush-swa-custom-fields
  * Domain Path: /languages/
- * Version:     1.0.0
+ * Version:     1.0.1
  * License:     GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'SEMrush_SEO_Writing_Assistant_Custom_Fields' ) ) {
 
 	// Plugins constants.
-	define( 'SEMRUSH_SWA_CUSTOM_FIELDS_PLUGIN_VERSION', '1.0.0' );
+	define( 'SEMRUSH_SWA_CUSTOM_FIELDS_PLUGIN_VERSION', '1.0.1' );
 	define( 'SEMRUSH_SWA_CUSTOM_FIELDS_PLUGIN_BASEDIR', dirname( __FILE__ ) );
 	define( 'SEMRUSH_SWA_CUSTOM_FIELDS_PLUGIN_BASEURL', plugin_dir_url( __FILE__ ) );
 
@@ -55,4 +55,7 @@ if ( ! class_exists( 'SEMrush_SEO_Writing_Assistant_Custom_Fields' ) ) {
 
 	// Activate the plugin once all plugin have been loaded.
 	add_action( 'plugins_loaded', 'semrush_swa_custom_fields_plugin_init' );
+
+	// Activation hook.
+	register_activation_hook( __FILE__, array( 'SEMrush_SEO_Writing_Assistant_Custom_Fields', 'plugin_activation' ) );
 }
