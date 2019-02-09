@@ -85,7 +85,9 @@ class SEMrush_SEO_Writing_Assistant_Custom_Fields {
 	public function require_components() {
 
 		// For plugin checks.
-		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
+			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		}
 
 		// Check for SEMrush SEO Writing Assistant plugin.
 		if ( ! is_plugin_active( 'semrush-seo-writing-assistant/semrush-seo-writing-assistant.php' ) ) {
@@ -147,4 +149,26 @@ class SEMrush_SEO_Writing_Assistant_Custom_Fields {
 		return false;
 	}
 
+	/**
+	 * Plugin activation hook.
+	 *
+	 * @return void
+	 */
+	public static function plugin_activation() {
+		if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
+			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		}
+		if ( current_user_can( 'activate_plugins' )
+			&& ! is_plugin_active( 'semrush-seo-writing-assistant/semrush-seo-writing-assistant.php' ) ) {
+
+			// Throw an error in the WordPress admin console.
+			die(
+				sprintf(
+					'<p style="color: #444; font-size: 13px; line-height: 1.4em;font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen-Sans, Ubuntu, Cantarell, \'Helvetica Neue\', sans-serif;">' . __( 'The <i>%$1s</i> plugin requires %$2s plugin to be active.', 'semrush-swa-custom-fields' ) . '</p>',
+					'SEMrush SEO Writing Assistant Custom Fields',
+					'<a target="_blank" href="' . esc_url( 'https://wordpress.org/plugins/semrush-seo-writing-assistant/' ) . '">SEMrush SEO Writing Assistant</a>'
+				)
+			); // WPCS: XSS ok.
+		}
+	}
 }
