@@ -119,7 +119,7 @@ class SEMrush_SEO_Writing_Assistant_Custom_Fields {
 		 */
 		$allowed_post_types = apply_filters( 'semrush_seo_writing_assistant_post_types', array( 'post', 'page', 'product' ) );
 
-		if ( empty( $post_type ) || ! in_array( $post_type, $allowed_post_types ) ) {
+		if ( empty( $post_type ) || ! in_array( $post_type, $allowed_post_types, true ) ) {
 			return;
 		}
 
@@ -140,6 +140,7 @@ class SEMrush_SEO_Writing_Assistant_Custom_Fields {
 	public static function is_ajax_request() {
 
 		if (
+			// PHPCS:ignore.
 			( ! empty( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && strtolower( $_SERVER['HTTP_X_REQUESTED_WITH'] ) === 'xmlhttprequest' )
 			|| ( defined( 'DOING_AJAX' ) && DOING_AJAX )
 		) {
