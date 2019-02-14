@@ -42,12 +42,25 @@ The following example will update text for SEMrush check every 5 seconds, using 
 
 ```javascript
 jQuery( document ).ready( function() {
-	var sr = new SeoWritingAssistantSEMrushCustomFields( { interval: 5 } );
+	var swa = new SeoWritingAssistantSEMrushCustomFields( { interval: 5 } );
 	jQuery( document ).on( 'seo-writing-assistant-semrush', function( event, data ) {
 		data.html = jQuery( '#excerpt' ).val() + "\n"
 			+ jQuery( '.editor-post-excerpt__textarea textarea').val() + "\n"
 			+ jQuery( '#my_custom_fields' ).val();
 	} )
+} );
+```
+
+## JavaScript API
+
+### `setHTML()`
+
+The following example will update programmatically the text used by SEMrush check with an arbitrary value:
+
+```javascript
+jQuery( document ).ready( function() {
+	var swa = new SeoWritingAssistantSEMrushCustomFields( { interval: 0 } );
+	swa.setHtml( 'foo baz bar' );
 } );
 ```
 
