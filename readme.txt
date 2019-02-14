@@ -1,10 +1,10 @@
-=== SEMrush SEO Writing Assistant Custom Fields ===
+=== SEO Writing Assistant SEMrush Custom Fields ===
 Contributors: enrico.sorcinelli
-Tags: json, rest, xmlrpc, api, security, admin, theme
+Tags: seo, readability, content analysis, content marketing, custom fields
 Requires at least: 4.4
 Requires PHP: 5.2.4
 Tested up to: 5.0.3
-Stable tag: 1.0.0
+Stable tag: 1.0.3
 License: GPLv2 or later
 
 == Description ==
@@ -21,13 +21,13 @@ Note that the plugin don't replace _SEMrush SEO Writing Assistant_ but is intend
 
 This section describes how to install the plugin and get it working.
 
-* Upload the plugin files to the `/wp-content/plugins/semrush-seo-writing-assistant-custom-fields` directory, or install the plugin through the WordPress _Plugins_ screen directly.
+* Upload the plugin files to the `/wp-content/plugins/seo-writing-assistant-semrush-custom-fields` directory, or install the plugin through the WordPress _Plugins_ screen directly.
 * Activate the plugin through the _Plugins_ screen in WordPress.
 
 == Usage ==
 
 Once the plugin is installed you can configure it programmatically,
-by using `semrush_seo_writing_assistant_post_types` (optional) filter and `SEMrushSeoWritingAssistantCustomFields` JavaScript object (see below).
+by using `semrush_seo_writing_assistant_post_types` (optional) filter and `SeoWritingAssistantSEMrushCustomFields` JavaScript object (see below).
 
 == API ==
 
@@ -41,14 +41,14 @@ Filters post types where to enable plugin. Default to `array( 'post', 'page', 'p
 
 = JavaScript Event =
 
-**`semrush-seo-writing-assistant`**
+**`seo-writing-assistant-semrush`**
 
 The following example will update text for SEMrush check every 5 seconds, using `excerpt` and `my_custom_fields` custom field values (working both with block and classic editors):
 
 `
 jQuery( document ).ready( function() {
-	var sr = new SEMrushSeoWritingAssistantCustomFields( { interval: 5 } );
-	jQuery( document ).on( 'semrush-seo-writing-assistant', function( event, data ) {
+	var sr = new SeoWritingAssistantSEMrushCustomFields( { interval: 5 } );
+	jQuery( document ).on( 'seo-writing-assistant-semrush', function( event, data ) {
 		data.html = jQuery( '#excerpt' ).val() + "\n"
 			+ jQuery( '.editor-post-excerpt__textarea textarea').val() + "\n"
 			+ jQuery( '#my_custom_fields' ).val();
@@ -64,4 +64,4 @@ Yes.
 
 == Changelog ==
 
-For SEMrush SEO Writing Assistant Custom Fields changelog, please see [the Releases page on GitHub](https://github.com/enrico-sorcinelli/semrush-seo-writing-assistant-custom-fields/releases).
+For SEO Writing Assistant SEMrush Custom Fields changelog, please see [the Releases page on GitHub](https://github.com/enrico-sorcinelli/seo-writing-assistant-semrush-custom-fields/releases).
