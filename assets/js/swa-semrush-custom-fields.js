@@ -1,8 +1,8 @@
 /**
- * @file This file contains SEMrush Seo Writing Assistant Custom Fields JavaScript class
+ * @file This file contains Seo Writing Assistant SEMrush Custom Fields JavaScript class
  * @author Enrico Sorcinelli 
  * @version 1.0.0
- * @title SEMrush Seo Writing Assistant Custom Fields
+ * @title SEO Writing Assistant SEMrush Custom Fields
  */
 
 /**
@@ -12,11 +12,11 @@
  * @param {boolean} [args.debug=false] - Debug mode. If `true`, it will print on `console.log` (if defined) some debug useful informations.
  * @param {number}  [args.interval=5] - Sets interval, in seconds, for event trigger. Set to `0` to turn off.
  *
- * @fires `semrush-seo-writing-assistant`
+ * @fires `seo-writing-assistant-semrush`
  *
  * @constructor
  */
-SEMrushSeoWritingAssistantCustomFields = function( args ) {
+SeoWritingAssistantSEMrushCustomFields = function( args ) {
 
 	// Default arguments.
 	args = $.extend(true, {
@@ -47,14 +47,14 @@ SEMrushSeoWritingAssistantCustomFields = function( args ) {
 /**
  * Class methods.
  */
-SEMrushSeoWritingAssistantCustomFields.prototype = {
+SeoWritingAssistantSEMrushCustomFields.prototype = {
 
 	/**
-	 * Trigger `semrush-seo-writing-assistant` event.
+	 * Trigger `seo-writing-assistant-semrush` event.
 	 */
 	'trigger': function() {
 		var data = {};
-		$( window.document ).trigger( 'semrush-seo-writing-assistant', [ data ] );
+		$( window.document ).trigger( 'seo-writing-assistant-semrush', [ data ] );
 		this.setHtml( data.html );
 	},
 
