@@ -1,4 +1,4 @@
-# SEMrush SEO Writing Assistant Custom Fields
+# SEO Writing Assistant SEMrush Custom Fields
 
 The [SEMrush SEO Writing Assistant](https://wordpress.org/plugins/semrush-seo-writing-assistant/) plugin read only from post `title` and post `content` elements for the real time check.
 
@@ -12,13 +12,13 @@ Note that the plugin don't replace _SEMrush SEO Writing Assistant_ but is intend
 
 This section describes how to install the plugin and get it working.
 
-1. Upload the plugin files to the `/wp-content/plugins/semrush-seo-writing-assistant-custom-fields` directory, or install the plugin through the WordPress _Plugins_ screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/seo-writing-assistant-semrush-custom-fields` directory, or install the plugin through the WordPress _Plugins_ screen directly.
 1. Activate the plugin through the _Plugins_ screen in WordPress.
 
 # Usage
 
 Once the plugin is installed you can configure it programmatically,
-by using `semrush_seo_writing_assistant_post_types` (optional) filter and `SEMrushSeoWritingAssistantCustomFields` JavaScript object (see below).
+by using `semrush_seo_writing_assistant_post_types` (optional) filter and `SeoWritingAssistantSEMrushCustomFields` JavaScript object (see below).
 
 # API
 
@@ -34,14 +34,14 @@ apply_filters( 'semrush_seo_writing_assistant_post_types', array $post_types )
 
 ## JavaScript Event
 
-### `semrush-seo-writing-assistant`
+### `seo-writing-assistant-semrush`
 
 The following example will update text for SEMrush check every 5 seconds, using `excerpt` and `my_custom_fields` custom field values (working both with block and classic editors):
 
 ```javascript
 jQuery( document ).ready( function() {
-	var sr = new SEMrushSeoWritingAssistantCustomFields( { interval: 5 } );
-	jQuery( document ).on( 'semrush-seo-writing-assistant', function( event, data ) {
+	var sr = new SeoWritingAssistantSEMrushCustomFields( { interval: 5 } );
+	jQuery( document ).on( 'seo-writing-assistant-semrush', function( event, data ) {
 		data.html = jQuery( '#excerpt' ).val() + "\n"
 			+ jQuery( '.editor-post-excerpt__textarea textarea').val() + "\n"
 			+ jQuery( '#my_custom_fields' ).val();
