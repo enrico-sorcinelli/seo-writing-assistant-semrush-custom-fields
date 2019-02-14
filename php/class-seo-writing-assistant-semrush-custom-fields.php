@@ -2,7 +2,7 @@
 /**
  * Plugin base class.
  *
- * @package semrush-swa-custom-fields
+ * @package swa-semrush-custom-fields
  * @author Enrico Sorcinelli
  */
 
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Plugin base class.
  */
-class SEMrush_SEO_Writing_Assistant_Custom_Fields {
+class SEO_Writing_Assistant_SEMrush_Custom_Fields {
 
 	/**
 	 * Instance settings.
@@ -29,7 +29,7 @@ class SEMrush_SEO_Writing_Assistant_Custom_Fields {
 	 *
 	 * @var string
 	 */
-	private static $prefix = 'semrush_swa_custom_fields_plugin_';
+	private static $prefix = 'swa_semrush_custom_fields_plugin_';
 
 	/**
 	 * Instance of this class.
@@ -125,9 +125,9 @@ class SEMrush_SEO_Writing_Assistant_Custom_Fields {
 
 		wp_enqueue_script(
 			self::$prefix . 'js',
-			SEMRUSH_SWA_CUSTOM_FIELDS_PLUGIN_BASEURL . '/assets/js/semrush-swa-custom-fields.js',
+			SWA_SEMRUSH_CUSTOM_FIELDS_PLUGIN_BASEURL . '/assets/js/swa-semrush-custom-fields.js',
 			array(),
-			SEMRUSH_SWA_CUSTOM_FIELDS_PLUGIN_VERSION,
+			SWA_SEMRUSH_CUSTOM_FIELDS_PLUGIN_VERSION,
 			false
 		);
 	}
@@ -165,8 +165,8 @@ class SEMrush_SEO_Writing_Assistant_Custom_Fields {
 			// Throw an error in the WordPress admin console.
 			die(
 				sprintf(
-					'<p style="color: #444; font-size: 13px; line-height: 1.4em;font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen-Sans, Ubuntu, Cantarell, \'Helvetica Neue\', sans-serif;">' . __( 'The <i>%$1s</i> plugin requires %$2s plugin to be active.', 'semrush-swa-custom-fields' ) . '</p>',
-					'SEMrush SEO Writing Assistant Custom Fields',
+					'<p style="color: #444; font-size: 13px; line-height: 1.4em;font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen-Sans, Ubuntu, Cantarell, \'Helvetica Neue\', sans-serif;">' . __( 'The <i>%1$s</i> plugin requires %2$s plugin to be active.', 'swa-semrush-custom-fields' ) . '</p>',
+					'SEO Writing Assistant SEMrush  Custom Fields',
 					'<a target="_blank" href="' . esc_url( 'https://wordpress.org/plugins/semrush-seo-writing-assistant/' ) . '">SEMrush SEO Writing Assistant</a>'
 				)
 			); // WPCS: XSS ok.
