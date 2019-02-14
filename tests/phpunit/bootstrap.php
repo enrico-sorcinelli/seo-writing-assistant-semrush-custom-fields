@@ -23,7 +23,7 @@ require_once $_tests_dir . '/includes/functions.php';
  * Manually load the plugin being tested.
  */
 function _manually_load_plugin() {
-	require dirname( dirname( __FILE__ ) ) . '../../semrush-seo-writing-assistant-custom-fields.php';
+	require dirname( dirname( __FILE__ ) ) . '../../seo-writing-assistant-semrush-custom-fields.php';
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 
