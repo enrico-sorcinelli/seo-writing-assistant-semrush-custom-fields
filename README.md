@@ -32,6 +32,8 @@ Filters post types where to enable plugin. Default to `array( 'post', 'page', 'p
 apply_filters( 'semrush_seo_writing_assistant_post_types', array $post_types )
 ```
 
+The filter has the same name as the one used by _SEMrush SEO Writing Assistant_ plugin (since version 1.0.4) used for the same purpose.
+
 ## JavaScript Event
 
 ### `seo-writing-assistant-semrush`
