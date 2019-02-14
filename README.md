@@ -53,7 +53,7 @@ jQuery( document ).ready( function() {
 
 ## JavaScript API
 
-### `setHTML()`
+### `setHtml()`
 
 The following example will update programmatically the text used by SEMrush check with an arbitrary value:
 
