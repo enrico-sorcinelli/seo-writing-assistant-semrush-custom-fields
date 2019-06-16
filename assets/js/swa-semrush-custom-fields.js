@@ -1,7 +1,7 @@
 /**
  * @file This file contains Seo Writing Assistant SEMrush Custom Fields JavaScript class
  * @author Enrico Sorcinelli 
- * @version 1.0.0
+ * @version 1.1.0
  * @title SEO Writing Assistant SEMrush Custom Fields
  */
 
@@ -26,6 +26,11 @@ SeoWritingAssistantSEMrushCustomFields = function( args ) {
 		args
 	);
 
+	this.params = {
+		debug: args.debug,
+		interval: args.interval
+	};
+
 	// Check for SEMrush plugin.
 	if ( $( '#swa-meta-box' ).length < 1 ) {
 		return;
@@ -39,9 +44,37 @@ SeoWritingAssistantSEMrushCustomFields = function( args ) {
 	}
 
 	// Create interval.
-	if ( args.interval > 0 ) {
-		this.interval = setInterval( this.trigger.bind( this ), args.interval * 1000 );
+	if ( this.params.interval > 0 ) {
+		this.interval = setInterval( this.trigger.bind( this ), this.params.interval * 1000 );
 	}
+
+	// Add listener for elements with `swa-scf` class or `data-swa-scf` attribute.
+	$( document ).on( 'seo-writing-assistant-semrush', function( event, data ) {
+
+		$( '.swa-scf, [data-swa-scf]' ).each( function( i, e ) {
+
+			if ( 'select' === $( e ).prop( 'tagName' ).toLowerCase() ) {
+				data.html += "\n" + $( e ).val();
+				return;
+			}
+			switch ( $( e ).prop('type') ) {
+				case 'text' :
+				case 'textarea' :
+					data.html += "\n" + $( e ).val();
+					break;
+				case 'radio' :
+				case 'checkbox' :
+					if ( $( e ).is( ':checked' ) ) {
+						data.html += "\n" + $( e ).val();
+					}
+					break;
+				default:
+					break;
+			}
+		} );
+
+	} );
+
 };
 
 /**
@@ -53,7 +86,7 @@ SeoWritingAssistantSEMrushCustomFields.prototype = {
 	 * Trigger `seo-writing-assistant-semrush` event.
 	 */
 	'trigger': function() {
-		var data = {};
+		var data = { html: '' };
 		$( window.document ).trigger( 'seo-writing-assistant-semrush', [ data ] );
 		this.setHtml( data.html );
 	},
@@ -67,3 +100,10 @@ SeoWritingAssistantSEMrushCustomFields.prototype = {
 		this.$cmsms_content_composer_text.html( html );
 	}
 };
+
+// Auto-enable object.
+$( document ).ready( function() {
+	if ( swa_semrush_custom_fields_i18n.enable ) {
+		swa_semrush_custom_fields = new SeoWritingAssistantSEMrushCustomFields( { interval: swa_semrush_custom_fields_i18n.interval } );
+	}
+} );
