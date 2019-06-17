@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.1.0] - 2019-06-16
+### Added
+ - Support for Advanced Custom Fields.
+ - Autodiscovery feature.
+ - Plugin settings and `semrush_seo_writing_assistant_settings` filter.
+ - Italian translations.
+
+### Changed
+ - Updated documentation.
+
 ## [1.0.3] - 2019-02-14
 ### Changed
  - Refactored accordying to the new plugin slug.
