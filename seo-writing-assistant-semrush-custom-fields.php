@@ -9,9 +9,9 @@
  * Description: A WordPress plugin that allows SEMrush SEO Writing Assistant working with custom fields
  * Author:      Enrico Sorcinelli
  * Author URI:  https://github.com/enrico-sorcinelli/seo-writing-assistant-semrush-custom-fields/graphs/contributors
- * Text Domain: semrush-swa-custom-fields
+ * Text Domain: swa-semrush-custom-fields
  * Domain Path: /languages/
- * Version:     1.0.3
+ * Version:     1.1.0
  * License:     GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'SEO_Writing_Assistant_SEMrush_Custom_Fields' ) ) {
 
 	// Plugins constants.
-	define( 'SWA_SEMRUSH_CUSTOM_FIELDS_PLUGIN_VERSION', '1.0.3' );
+	define( 'SWA_SEMRUSH_CUSTOM_FIELDS_PLUGIN_VERSION', '1.1.0' );
 	define( 'SWA_SEMRUSH_CUSTOM_FIELDS_PLUGIN_BASEDIR', dirname( __FILE__ ) );
 	define( 'SWA_SEMRUSH_CUSTOM_FIELDS_PLUGIN_BASEURL', plugin_dir_url( __FILE__ ) );
 
@@ -38,16 +38,8 @@ if ( ! class_exists( 'SEO_Writing_Assistant_SEMrush_Custom_Fields' ) ) {
 
 	/**
 	 * Init the plugin.
-	 *
-	 * Define SWA_SEMRUSH_CUSTOM_FIELDS_PLUGIN_DEBUG to false in your <i>wp-config.php</i> to disable.
-	 *
-	 * @return void
 	 */
 	function swa_semrush_custom_fields_plugin_init() {
-
-		if ( defined( 'SWA_SEMRUSH_CUSTOM_FIELDS_PLUGIN_AUTOENABLE' ) && SWA_SEMRUSH_CUSTOM_FIELDS_PLUGIN_AUTOENABLE === false ) {
-			return;
-		}
 
 		// Instantiate our plugin class and add it to the set of globals.
 		$GLOBALS['swa_semrush_custom_fields_plugin'] = SEO_Writing_Assistant_SEMrush_Custom_Fields::get_instance( array( 'debug' => SWA_SEMRUSH_CUSTOM_FIELDS_PLUGIN_DEBUG && WP_DEBUG ) );
