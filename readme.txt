@@ -54,7 +54,7 @@ You can alernatavely control the plugins programmatically, by using
 
 Filters plugin settings values.
 
-`apply_filters( 'semrush_seo_writing_assistant_settings', array $settings )`
+`apply_filters( 'swa_semrush_custom_fields_settings', array $settings )`
 
 **`semrush_seo_writing_assistant_post_types`**
 
