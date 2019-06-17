@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
  - Support for Advanced Custom Fields.
  - Autodiscovery feature.
- - Plugin settings and `semrush_seo_writing_assistant_settings` filter.
+ - Plugin settings and `swa_semrush_custom_fields_settings` filter.
  - Italian translations.
 
 ### Changed
